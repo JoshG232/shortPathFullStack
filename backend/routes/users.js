@@ -1,6 +1,6 @@
 //Router is a function that allows us to create paths for client requests 
 const router = require('express').Router();
-let User = require('../models/user.model');
+var User = require('../models/user.model');
 
 //A GET request that gets all the users and displays them
 router.route('/').get((req, res) => {
@@ -12,12 +12,28 @@ router.route('/').get((req, res) => {
 //At /add is a POST request that can add the username of the user
 router.route('/add').post((req, res) => {
   const username = req.body.username;
-  const newUser = new User({username});
+  const password = req.body.password;
+  const newUser = new User({username,password});
   console.log(newUser)
   newUser.save()
     .then(() => res.json(newUser))
     .catch(err => res.status(400).json('Error: ' + err));
 });
+
+router.route("/login").post((req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  const loginUser = new User({username,password})
+
+  console.log(loginUser)
+  
+  // const user = User.find({username});
+  // console.log(user.username)
+    
+  
+  
+})
+
 
 //Using the object id that is created you can search for ceratin users
 router.route('/:id').get((req, res) => {

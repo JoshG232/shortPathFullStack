@@ -25,7 +25,7 @@ router.route("/login").post((req, res) => {
   const password = req.body.password;
   const loginUser = new User({username,password})
 
-  console.log(loginUser)
+  // const {username, password} = req.body
   
   // const user = User.find({username});
   // console.log(user.username)

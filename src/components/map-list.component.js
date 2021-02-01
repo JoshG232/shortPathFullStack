@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Button from "./button"
+import Map from "./map/map"
 
 export default class MapList extends Component{
     render() {
         return(
             <div>
+                <Map />
                 
-                <Button></Button>
             </div>
         )
     }

@@ -1,9 +1,71 @@
-.polylines{
-    /* visibility: hidden; */
-    position: absolute; 
-    top: 80px; 
+
+.main{
+    position: relative;
+    display: flex;
     
 }
+.map{
+    position: relative;
+    background-image: url(schoolmap.png);
+    width:744px;
+    height: 753px;
+}
+/* .allLines{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color: blue;
+    margin: 0;
+    padding: 0;
+
+} */
 .schoolMap{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+svg{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    height: 753px;
+    width: 744px;
+    top: 0;
+    left: 0;
+    z-index:10;
+}
+.startDiv{
+    background-color: aqua;
+    height: 376.5px;
+    width: 400px;
+}
+.endDiv{
+    position: relative;
+    top:50%;
+    height: 376.5px;
+    width: 400px;
+    background-color: azure;
+}
+
+.selectingName{
+    position: relative;
+    background-color: lightblue;
     
+    width: 1000px;
+    right: 0;
+    z-index: 10;
+    
+
+}
+.leftDiv{
+    width: 400px;
+}
+.stats{
+    position: absolute;
+    
+    
+    top: 0;
+    left: 60%;
 }

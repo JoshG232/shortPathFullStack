@@ -7,6 +7,7 @@ import MapList from "./components/map-list.component";
 import EditUser from "./components/edit-user.component";
 import LoginUser from "./components/login-user.component";
 import CreateUser from "./components/create-user.component";
+import RoutePage from "./components/routepage.component";
 
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
       <Navbar />
       <br/>
       <Route path="/" exact component={MapList} />
+      <Route path="/route" exact component={RoutePage} />
+
       <Route path="/edit/:id" component={EditUser} />
       <Route path="/login" component={LoginUser} />
       <Route path="/user" component={CreateUser} />

@@ -49,14 +49,14 @@ export default class Map extends Component{
     }
     onSubmit(e){
         e.preventDefault()
-        const user = {
+        const userRoute = {
             username: this.state.username,
             routeName: this.state.routeName
            
         }
-        console.log(user)
+        
 
-        axios.post("http://localhost:5000/add", user)
+        axios.post("http://localhost:5000/map/add", userRoute)
             .then(res => console.log(res.data))
         this.setState({
             username: "",

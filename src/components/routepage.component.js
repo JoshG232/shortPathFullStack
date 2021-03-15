@@ -8,31 +8,40 @@ export default class RoutePage extends Component{
         //Making sure that "this" is binded to "this" and not something else
         this.createUser = React.createRef()
         this.onChangeUsername = this.onChangeUsername.bind(this);
-        this.onChangePassword = this.onChangePassword.bind(this);
+        this.onChangeRouteName = this.onChangeRouteName.bind(this);
         this.onSubmit = this.onSubmit.bind(this)
         
         
         this.state = {
             username: "",
-            password:""
+            routeName:"",
+            items: [],
             
         }
         
     }
+    items = []
     onSubmit(e){
         e.preventDefault()
-        const user = {
+        const userRoute = {
             username: this.state.username,
-            password: this.state.password
+            routeName: this.state.routeName
            
         }
-        console.log(user)
+        console.log(userRoute)
 
-        axios.post("http://localhost:5000/users/add", user)
-            .then(res => console.log(res.data))
+        axios.post("http://localhost:5000/map/findUser", userRoute)
+            .then(res => res.data)
+            .then(data => {
+                this.setState({
+                    items: data
+                })
+            })
         this.setState({
             username: "",
-            password: ""
+            routeName: "",
+            
+            
         })
         
     }
@@ -42,9 +51,9 @@ export default class RoutePage extends Component{
           username: e.target.value
         })
     } 
-    onChangePassword(e) {
+    onChangeRouteName(e) {
         this.setState({
-          password: e.target.value
+          routeName: e.target.value
         })
     } 
    
@@ -52,7 +61,7 @@ export default class RoutePage extends Component{
     render() {
         return(
             <div>
-                <h3>{this.state.results}</h3>
+                <h3>Routes</h3>
                     <form onSubmit={this.onSubmit}>
                         <div className="form-group"> 
                             <label>Username: </label>
@@ -63,20 +72,19 @@ export default class RoutePage extends Component{
                                 onChange={this.onChangeUsername}
                                 />
                         </div>
-                        <div className="form-group"> 
-                            <label>Password: </label>
-                            <input  type="text"
-                                required
-                                className="form-control"
-                                value={this.state.password}
-                                onChange={this.onChangePassword}
-                                />
-                        </div>
+                        
                         <div className="form-group">
-                            <input type="submit" value="Create User" className="btn btn-primary" />
+                            <input type="submit" value="Get routes " className="btn btn-primary" />
                         </div>
                     </form>
-                            
+                <div>
+                    <h1>{}</h1>
+                    
+                    
+                    
+                    
+                    
+                </div>         
             </div>
         )
         

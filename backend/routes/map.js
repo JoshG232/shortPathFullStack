@@ -10,19 +10,28 @@ router.route("/").get((req,res) => {
 })
 //At /add is a POST request that can add the name of the map and the weight
 router.route("/add").post((req,res) => {
-    const nameM = req.body.nameM;
-    const weight = req.body.weight
-
+    
+    const username = req.body.username;
+    const routeName = req.body.routeName
+    
     //newMap is created from the nameM and weight and saved the database
-    const newMap = new Map({
-        nameM,
-        weight
+    const newRoute = new Map({
+        username,
+        routeName
     })
-
-    newMap.save()
-    .then(() => res.json("Map added"))
+    console.log(newRoute)
+    newRoute.save()
+    .then(() => res.json(newRoute))
     .catch(err => res.status(400).json("Error: " + err))
 
+})
+
+router.route("/findUser").get((req,res) => {
+    
+    Map.find({username:req.body.username})
+        .then(routes => res.json(routes))
+        .catch(err => res.status(400).json("Error: " + err))
+    
 })
 
 //Exporting the router

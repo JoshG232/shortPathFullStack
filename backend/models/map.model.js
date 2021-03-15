@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    nameM:{ type: String },
-    weight : {type: String},
+    username:{ type: String },
+    routeName : {type: String},
 }, {
   timestamps: true,
 });

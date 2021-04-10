@@ -51,11 +51,12 @@ export default class Map extends Component{
         e.preventDefault()
         const userRoute = {
             username: this.state.username,
-            routeName: this.state.routeName
-           
+            routeName: this.state.routeName,
+            distance: this.state.results.distance,
+            path: this.state.results.path
         }
         
-
+        console.log(userRoute)
         axios.post("http://localhost:5000/map/add", userRoute)
             .then(res => console.log(res.data))
         this.setState({

@@ -12,12 +12,17 @@ router.route("/").get((req,res) => {
 router.route("/add").post((req,res) => {
     
     const username = req.body.username;
-    const routeName = req.body.routeName
-    
-    //newMap is created from the nameM and weight and saved the database
+    const routeName = req.body.routeName;
+    const distance = req.body.distance;
+    const path = req.body.path;
+    console.log(path)
+    //newMap is created from the username,routeName,distance and path and saved the database
     const newRoute = new Map({
         username,
-        routeName
+        routeName,
+        distance,
+        path,
+        
     })
     console.log(newRoute)
     newRoute.save()

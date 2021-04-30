@@ -217,8 +217,9 @@ const pathing = (results) => {
     var totalPaths = []
     var i;
     for(i=0; i<(resultsPath.length-1); i++){ //For loop to go through the path
+        //Pushes the routes connected e.g ABC = ["AB","BC"]
         totalPaths.push(resultsPath[i]+resultsPath[i+1])
-        // console.log(resultsPath[i],resultsPath[i+1])
+        
     }
     console.log(totalPaths)
     for(i=0; i<totalPaths.length; i++){
@@ -229,7 +230,7 @@ const pathing = (results) => {
 
 const shortestDistanceNode = (distances, visited) => {
 	let shortest = null;
-
+    //finds the shortest distance from the currnet node
 	for (let node in distances) {
 		let currentIsShortest =
 			shortest === null || distances[node] < distances[shortest];

@@ -6,7 +6,7 @@ export default class MapList extends Component{
         return(
             <div>
                 <Map />
-                Hello
+                
             </div>
         )
     }
